@@ -12,7 +12,7 @@ onready var raycasts = $raycasts
 func _physics_process(delta):
 	velocity.y += gravity * delta 
 	velocity.x += lerp(velocity.x, move_speed * delta, 1)
-	clamp(velocity.x, 0, 1000)
+	clamp(velocity.x, 0, 2000)
 	velocity = move_and_slide(velocity, movement)
 	is_grounded = _check_is_grounded()
 
