@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Button.gd" type="Script" id=1]
+
+[node name="start screen" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 301.267
+margin_top = 97.6329
+margin_right = 341.267
+margin_bottom = 111.633
+text = "The Vikings are a brutal bunch,
+as a young warrior it is expected
+that you will undertake the right
+of passage known as the path of
+             THE BESERKER"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 334.273
+margin_top = 191.124
+margin_right = 475.273
+margin_bottom = 211.124
+text = "Begin the ceremony"
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
