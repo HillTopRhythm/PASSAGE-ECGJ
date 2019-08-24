@@ -1,4 +1,91 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://player.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 29.1588, 55.4017 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 288.381, 10 )
 
 [node name="main scene" type="Node2D"]
+
+[node name="player" type="KinematicBody2D" parent="."]
+position = Vector2( 50.5015, 207.233 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="player"]
+position = Vector2( 0, 0.58316 )
+scale = Vector2( 1, 1.74719 )
+texture = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2( 455.252, -109.186 )
+current = true
+
+[node name="raycasts" type="RayCast2D" parent="player"]
+position = Vector2( -2.32134, 51.8434 )
+enabled = true
+exclude_parent = false
+cast_to = Vector2( 0, 10 )
+collision_mask = 3
+collide_with_areas = true
+
+[node name="ground" type="StaticBody2D" parent="."]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+position = Vector2( 347.514, 306.503 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="ground"]
+position = Vector2( 349.068, 327.356 )
+scale = Vector2( 9.16, 1 )
+texture = ExtResource( 2 )
+
+[node name="ground2" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 659.859, 7.9501 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground2"]
+position = Vector2( 347.514, 306.503 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="ground2"]
+position = Vector2( 349.068, 327.356 )
+scale = Vector2( 9.16, 1 )
+texture = ExtResource( 2 )
+
+[node name="ground3" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 1338.27, 5.30008 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground3"]
+position = Vector2( 347.514, 306.503 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="ground3"]
+position = Vector2( 349.068, 327.356 )
+scale = Vector2( 9.16, 1 )
+texture = ExtResource( 2 )
+
+[node name="ground4" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 2056.43, 10.6002 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground4"]
+position = Vector2( 347.514, 306.503 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="ground4"]
+position = Vector2( 349.068, 327.356 )
+scale = Vector2( 9.16, 1 )
+texture = ExtResource( 2 )
 
