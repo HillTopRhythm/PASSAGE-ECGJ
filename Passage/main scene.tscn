@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://arrow.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 29.1588, 55.4017 )
@@ -88,4 +89,7 @@ shape = SubResource( 3 )
 position = Vector2( 349.068, 327.356 )
 scale = Vector2( 9.16, 1 )
 texture = ExtResource( 2 )
+
+[node name="arrow" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1411.17, 54.4501 )
 
