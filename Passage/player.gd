@@ -14,6 +14,8 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, movement)
 	if is_on_floor():
 		$AnimationPlayer.play("run")
+	else:
+		$AnimationPlayer.play
 
 
 func _input(event):

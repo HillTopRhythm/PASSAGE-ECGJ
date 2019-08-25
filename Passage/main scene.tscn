@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://CH_Viking_SS.png" type="Texture" id=2]
@@ -34,6 +34,9 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 8, 9, 10, 11 ]
 }
+
+[sub_resource type="Animation" id=11]
+resource_name = "hang time"
 
 [sub_resource type="Animation" id=4]
 resource_name = "run"
@@ -119,7 +122,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="player"]
-position = Vector2( 0, 0.58316 )
+position = Vector2( -14.7847, 15.3678 )
 scale = Vector2( 1, 1.74719 )
 texture = ExtResource( 2 )
 vframes = 3
@@ -143,6 +146,7 @@ collide_with_areas = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="player"]
 anims/Jump-anim = SubResource( 5 )
+"anims/hang time" = SubResource( 11 )
 anims/run = SubResource( 4 )
 
 [node name="ground" type="StaticBody2D" parent="."]
