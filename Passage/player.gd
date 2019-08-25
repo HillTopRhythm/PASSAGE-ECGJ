@@ -15,7 +15,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		$AnimationPlayer.play("run")
 	else:
-		$AnimationPlayer.play
+		$AnimationPlayer.play("hang time")
 
 
 func _input(event):

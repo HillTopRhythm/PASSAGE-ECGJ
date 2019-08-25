@@ -119,6 +119,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2( -12.5136, 14.7888 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="player"]
@@ -127,7 +128,7 @@ scale = Vector2( 1, 1.74719 )
 texture = ExtResource( 2 )
 vframes = 3
 hframes = 4
-frame = 3
+frame = 10
 region_enabled = true
 region_rect = Rect2( 0, 0, 256, 193.19 )
 
