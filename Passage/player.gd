@@ -10,18 +10,20 @@ var jump_power = -250
 func _physics_process(delta):
 	velocity.y += gravity * delta 
 	velocity.x += lerp(velocity.x, move_speed * delta, 1)
-	clamp(velocity.x, 0, 2000)
+	clamp(velocity.x, 0, 1000)
 	velocity = move_and_slide(velocity, movement)
 	if is_on_floor():
 		$AnimationPlayer.play("run")
-	else:
-		$AnimationPlayer.play("hang time")
-
 
 func _input(event):
 	if event.is_action_pressed("jump") && is_on_floor():
 		velocity.y = jump_power
 		$AnimationPlayer.play("Jump-anim")
+
+func is_falling():
+	$AnimationPlayer.play("hang time")
+	print("fook")
+
 
 
 
