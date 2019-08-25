@@ -1,14 +1,15 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://CH_Viking_SS.png" type="Texture" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Area2D.gd" type="Script" id=4]
+[ext_resource path="res://Vikinggamejam_1 (1).ogg" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 29.1588, 55.4017 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "Jump-anim"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:region_rect")
@@ -35,7 +36,7 @@ tracks/1/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=3]
 resource_name = "hang time"
 
 [sub_resource type="Animation" id=4]
@@ -67,46 +68,46 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 288.381, 10 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=6]
 
-[sub_resource type="Curve" id=6]
+[sub_resource type="Curve" id=7]
 max_value = 200.0
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=7]
-curve = SubResource( 6 )
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
 
-[sub_resource type="Curve" id=8]
+[sub_resource type="Curve" id=9]
 min_value = -200.0
 max_value = 200.0
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.167432, 44 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=9]
-curve = SubResource( 8 )
+[sub_resource type="CurveTexture" id=10]
+curve = SubResource( 9 )
 
-[sub_resource type="ParticlesMaterial" id=10]
+[sub_resource type="ParticlesMaterial" id=11]
 emission_shape = 1
 emission_sphere_radius = 1.0
 flag_disable_z = true
 spread = 0.0
 initial_velocity = 123.7
 initial_velocity_random = 0.37
-angular_velocity = 1.68156e-044
+angular_velocity = 1.68156e-44
 orbit_velocity = 0.0
 orbit_velocity_random = 0.4
 tangential_accel = 54.58
 tangential_accel_random = 1.0
-tangential_accel_curve = SubResource( 9 )
+tangential_accel_curve = SubResource( 10 )
 angle = 434.0
 scale = 2.0
 scale_random = 1.0
 hue_variation = -0.1
 anim_speed = 2.4
 anim_speed_random = 1.0
-anim_speed_curve = SubResource( 7 )
+anim_speed_curve = SubResource( 8 )
 anim_offset = 1.0
 
 [node name="main scene" type="Node2D"]
@@ -146,8 +147,8 @@ collision_mask = 3
 collide_with_areas = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="player"]
-anims/Jump-anim = SubResource( 5 )
-"anims/hang time" = SubResource( 11 )
+anims/Jump-anim = SubResource( 2 )
+"anims/hang time" = SubResource( 3 )
 anims/run = SubResource( 4 )
 
 [node name="ground" type="StaticBody2D" parent="."]
@@ -160,7 +161,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
 position = Vector2( -0.684631, 2.44221 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -183,7 +184,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground2"]
 position = Vector2( -0.684631, 2.44221 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -206,7 +207,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground3"]
 position = Vector2( -0.684631, 2.44221 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -229,7 +230,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground4"]
 position = Vector2( -0.684631, 2.44221 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -252,7 +253,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground5"]
 position = Vector2( -0.684631, 2.44221 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -275,7 +276,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground6"]
 position = Vector2( -0.684631, 2.44221 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -298,7 +299,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground7"]
 position = Vector2( -0.684631, 2.44221 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -321,7 +322,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground8"]
 position = Vector2( -0.684631, 2.44221 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -344,7 +345,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground9"]
 position = Vector2( -0.684631, 2.44221 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -367,7 +368,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground10"]
 position = Vector2( -0.684631, 2.44221 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -391,7 +392,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground11"]
 position = Vector2( -0.684631, 2.44221 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -411,19 +412,18 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kill box"]
 scale = Vector2( 44.32, 4.76 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="Particles2D" type="Particles2D" parent="kill box"]
 position = Vector2( 217.583, -39.0533 )
 rotation = -1.53811
 scale = Vector2( 2.29041, 8.4079 )
-emitting = false
 amount = 120
 one_shot = true
 speed_scale = 3.0
 explosiveness = 0.23
 randomness = 1.0
-process_material = SubResource( 10 )
+process_material = SubResource( 11 )
 
 [node name="kill box2" type="Area2D" parent="."]
 editor/display_folded = true
@@ -432,19 +432,18 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kill box2"]
 scale = Vector2( 44.32, 4.76 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="Particles2D" type="Particles2D" parent="kill box2"]
 position = Vector2( 217.583, -39.0533 )
 rotation = -1.53811
 scale = Vector2( 2.29041, 8.4079 )
-emitting = false
 amount = 120
 one_shot = true
 speed_scale = 3.0
 explosiveness = 0.23
 randomness = 1.0
-process_material = SubResource( 10 )
+process_material = SubResource( 11 )
 
 [node name="kill box3" type="Area2D" parent="."]
 editor/display_folded = true
@@ -453,19 +452,18 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kill box3"]
 scale = Vector2( 44.32, 4.76 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="Particles2D" type="Particles2D" parent="kill box3"]
 position = Vector2( 217.583, -39.0533 )
 rotation = -1.53811
 scale = Vector2( 2.29041, 8.4079 )
-emitting = false
 amount = 120
 one_shot = true
 speed_scale = 3.0
 explosiveness = 0.23
 randomness = 1.0
-process_material = SubResource( 10 )
+process_material = SubResource( 11 )
 
 [node name="kill box4" type="Area2D" parent="."]
 editor/display_folded = true
@@ -474,19 +472,18 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kill box4"]
 scale = Vector2( 44.32, 4.76 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="Particles2D" type="Particles2D" parent="kill box4"]
 position = Vector2( 217.583, -39.0533 )
 rotation = -1.53811
 scale = Vector2( 2.29041, 8.4079 )
-emitting = false
 amount = 120
 one_shot = true
 speed_scale = 3.0
 explosiveness = 0.23
 randomness = 1.0
-process_material = SubResource( 10 )
+process_material = SubResource( 11 )
 
 [node name="kill box5" type="Area2D" parent="."]
 editor/display_folded = true
@@ -495,19 +492,18 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kill box5"]
 scale = Vector2( 44.32, 4.76 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="Particles2D" type="Particles2D" parent="kill box5"]
 position = Vector2( 217.583, -39.0533 )
 rotation = -1.53811
 scale = Vector2( 2.29041, 8.4079 )
-emitting = false
 amount = 120
 one_shot = true
 speed_scale = 3.0
 explosiveness = 0.23
 randomness = 1.0
-process_material = SubResource( 10 )
+process_material = SubResource( 11 )
 
 [node name="kill box6" type="Area2D" parent="."]
 editor/display_folded = true
@@ -516,19 +512,18 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kill box6"]
 scale = Vector2( 44.32, 4.76 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="Particles2D" type="Particles2D" parent="kill box6"]
 position = Vector2( 217.583, -39.0533 )
 rotation = -1.53811
 scale = Vector2( 2.29041, 8.4079 )
-emitting = false
 amount = 120
 one_shot = true
 speed_scale = 3.0
 explosiveness = 0.23
 randomness = 1.0
-process_material = SubResource( 10 )
+process_material = SubResource( 11 )
 
 [node name="kill box7" type="Area2D" parent="."]
 editor/display_folded = true
@@ -537,19 +532,18 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kill box7"]
 scale = Vector2( 44.32, 4.76 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="Particles2D" type="Particles2D" parent="kill box7"]
 position = Vector2( 217.583, -39.0533 )
 rotation = -1.53811
 scale = Vector2( 2.29041, 8.4079 )
-emitting = false
 amount = 120
 one_shot = true
 speed_scale = 3.0
 explosiveness = 0.23
 randomness = 1.0
-process_material = SubResource( 10 )
+process_material = SubResource( 11 )
 
 [node name="kill box8" type="Area2D" parent="."]
 editor/display_folded = true
@@ -558,19 +552,18 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kill box8"]
 scale = Vector2( 44.32, 4.76 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="Particles2D" type="Particles2D" parent="kill box8"]
 position = Vector2( 217.583, -39.0533 )
 rotation = -1.53811
 scale = Vector2( 2.29041, 8.4079 )
-emitting = false
 amount = 120
 one_shot = true
 speed_scale = 3.0
 explosiveness = 0.23
 randomness = 1.0
-process_material = SubResource( 10 )
+process_material = SubResource( 11 )
 
 [node name="kill box9" type="Area2D" parent="."]
 position = Vector2( 25029.6, 625.725 )
@@ -581,20 +574,22 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kill box9"]
 scale = Vector2( 44.32, 4.76 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="Particles2D" type="Particles2D" parent="kill box9"]
 position = Vector2( 217.583, -39.0533 )
 rotation = -1.53811
 scale = Vector2( 2.29041, 8.4079 )
-emitting = false
 amount = 120
 one_shot = true
 speed_scale = 3.0
 explosiveness = 0.23
 randomness = 1.0
-process_material = SubResource( 10 )
+process_material = SubResource( 11 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 [connection signal="body_entered" from="kill box" to="kill box" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="kill box2" to="kill box2" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="kill box3" to="kill box3" method="_on_Area2D_body_entered"]

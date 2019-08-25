@@ -29,5 +29,4 @@ margin_right = 475.273
 margin_bottom = 211.124
 text = "Begin the ceremony"
 script = ExtResource( 1 )
-
 [connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
