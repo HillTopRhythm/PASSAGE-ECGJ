@@ -18,7 +18,7 @@ func _on_Area2D_body_entered(body):
 	print("HELLO") 			# Code before the yield
 	# Setting up the yield:
 	var t = Timer.new() 		# Create a new Timer node
-	t.set_wait_time(2) 		# Set the wait time
+	t.set_wait_time(1) 		# Set the wait time
 	add_child(t)			# Add it to the node tree as the direct child
 	t.start()			# Start it
 	yield(t, "timeout")		# Finally, make the script stop with the yield
