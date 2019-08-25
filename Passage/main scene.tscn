@@ -1,35 +1,132 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://arrow.tscn" type="PackedScene" id=3]
-[ext_resource path="res://enemy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Area2D.gd" type="Script" id=5]
+[ext_resource path="res://CH_Viking_SS.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Area2D.gd" type="Script" id=4]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 29.1588, 55.4017 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="Animation" id=5]
+resource_name = "Jump-anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "run"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 288.381, 10 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
+
+[sub_resource type="Curve" id=6]
+max_value = 200.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="Curve" id=8]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.167432, 44 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+spread = 0.0
+initial_velocity = 123.7
+initial_velocity_random = 0.37
+angular_velocity = 1.68156e-044
+orbit_velocity = 0.0
+orbit_velocity_random = 0.4
+tangential_accel = 54.58
+tangential_accel_random = 1.0
+tangential_accel_curve = SubResource( 9 )
+angle = 434.0
+scale = 2.0
+scale_random = 1.0
+hue_variation = -0.1
+anim_speed = 2.4
+anim_speed_random = 1.0
+anim_speed_curve = SubResource( 7 )
+anim_offset = 1.0
 
 [node name="main scene" type="Node2D"]
 
 [node name="player" type="KinematicBody2D" parent="."]
-position = Vector2( 50.5015, 207.233 )
+position = Vector2( 53.282, 325.603 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="player"]
 position = Vector2( 0, 0.58316 )
 scale = Vector2( 1, 1.74719 )
 texture = ExtResource( 2 )
+vframes = 3
+hframes = 4
+frame = 3
+region_enabled = true
+region_rect = Rect2( 0, 0, 256, 193.19 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2( 455.252, -109.186 )
@@ -44,20 +141,21 @@ cast_to = Vector2( 0, 10 )
 collision_mask = 3
 collide_with_areas = true
 
-[node name="arrow" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1411.17, 54.4501 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player"]
+anims/Jump-anim = SubResource( 5 )
+anims/run = SubResource( 4 )
 
 [node name="ground" type="StaticBody2D" parent="."]
 editor/display_folded = true
-position = Vector2( 3786.04, 392.336 )
-scale = Vector2( 13.0177, 1 )
+position = Vector2( 1306.12, 407.064 )
+scale = Vector2( 4.60018, 0.622937 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
 position = Vector2( -0.684631, 2.44221 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -65,22 +163,22 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="ground"]
 position = Vector2( 0.869904, 23.2953 )
 scale = Vector2( 9.16, 1 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="ground2" type="StaticBody2D" parent="."]
 editor/display_folded = true
-position = Vector2( 12269, 419.21 )
-scale = Vector2( 13.0177, 1 )
+position = Vector2( 4592.17, 412.643 )
+scale = Vector2( 4.60018, 0.622937 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground2"]
 position = Vector2( -0.684631, 2.44221 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -88,20 +186,416 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="ground2"]
 position = Vector2( 0.869904, 23.2953 )
 scale = Vector2( 9.16, 1 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="enemy" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1900.51, 306.674 )
+[node name="ground3" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 8094.05, 397.655 )
+scale = Vector2( 4.60018, 0.622937 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 8056.18, 490.279 )
-script = ExtResource( 5 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground3"]
+position = Vector2( -0.684631, 2.44221 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="Sprite" type="Sprite" parent="ground3"]
+position = Vector2( 0.869904, 23.2953 )
+scale = Vector2( 9.16, 1 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ground4" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 10887.5, 398.181 )
+scale = Vector2( 2.96018, 0.622937 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground4"]
+position = Vector2( -0.684631, 2.44221 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ground4"]
+position = Vector2( 0.869904, 23.2953 )
+scale = Vector2( 9.16, 1 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ground5" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 13247.2, 407.256 )
+scale = Vector2( 2.96018, 0.622937 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground5"]
+position = Vector2( -0.684631, 2.44221 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ground5"]
+position = Vector2( 0.869904, 23.2953 )
+scale = Vector2( 9.16, 1 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ground6" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 15774.1, 466.894 )
+scale = Vector2( 2.96018, 0.622937 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground6"]
+position = Vector2( -0.684631, 2.44221 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ground6"]
+position = Vector2( 0.869904, 23.2953 )
+scale = Vector2( 9.16, 1 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ground7" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 18365.9, 451.278 )
+scale = Vector2( 2.96018, 0.622937 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground7"]
+position = Vector2( -0.684631, 2.44221 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ground7"]
+position = Vector2( 0.869904, 23.2953 )
+scale = Vector2( 9.16, 1 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ground8" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 21259.6, 457.63 )
+scale = Vector2( 2.20019, 0.622937 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground8"]
+position = Vector2( -0.684631, 2.44221 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ground8"]
+position = Vector2( 0.869904, 23.2953 )
+scale = Vector2( 9.16, 1 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ground9" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 23682.6, 495.707 )
+scale = Vector2( 2.20019, 0.622937 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground9"]
+position = Vector2( -0.684631, 2.44221 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ground9"]
+position = Vector2( 0.869904, 23.2953 )
+scale = Vector2( 9.16, 1 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ground10" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 25946.2, 539.102 )
+scale = Vector2( 2.20019, 0.622937 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground10"]
+position = Vector2( -0.684631, 2.44221 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ground10"]
+position = Vector2( 0.869904, 23.2953 )
+scale = Vector2( 9.16, 1 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ground11" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 27151.2, 361.687 )
+rotation = -0.299501
+scale = Vector2( 2.20019, 0.622937 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground11"]
+position = Vector2( -0.684631, 2.44221 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ground11"]
+position = Vector2( 0.869904, 23.2953 )
+scale = Vector2( 9.16, 1 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="kill box" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 2906.93, 490.156 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill box"]
 scale = Vector2( 44.32, 4.76 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
+[node name="Particles2D" type="Particles2D" parent="kill box"]
+position = Vector2( 217.583, -39.0533 )
+rotation = -1.53811
+scale = Vector2( 2.29041, 8.4079 )
+emitting = false
+amount = 120
+one_shot = true
+speed_scale = 3.0
+explosiveness = 0.23
+randomness = 1.0
+process_material = SubResource( 10 )
+
+[node name="kill box2" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 6429.46, 482.633 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill box2"]
+scale = Vector2( 44.32, 4.76 )
+shape = SubResource( 3 )
+
+[node name="Particles2D" type="Particles2D" parent="kill box2"]
+position = Vector2( 217.583, -39.0533 )
+rotation = -1.53811
+scale = Vector2( 2.29041, 8.4079 )
+emitting = false
+amount = 120
+one_shot = true
+speed_scale = 3.0
+explosiveness = 0.23
+randomness = 1.0
+process_material = SubResource( 10 )
+
+[node name="kill box3" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 9707.82, 472.577 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill box3"]
+scale = Vector2( 44.32, 4.76 )
+shape = SubResource( 3 )
+
+[node name="Particles2D" type="Particles2D" parent="kill box3"]
+position = Vector2( 217.583, -39.0533 )
+rotation = -1.53811
+scale = Vector2( 2.29041, 8.4079 )
+emitting = false
+amount = 120
+one_shot = true
+speed_scale = 3.0
+explosiveness = 0.23
+randomness = 1.0
+process_material = SubResource( 10 )
+
+[node name="kill box4" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 12030.8, 482.633 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill box4"]
+scale = Vector2( 44.32, 4.76 )
+shape = SubResource( 3 )
+
+[node name="Particles2D" type="Particles2D" parent="kill box4"]
+position = Vector2( 217.583, -39.0533 )
+rotation = -1.53811
+scale = Vector2( 2.29041, 8.4079 )
+emitting = false
+amount = 120
+one_shot = true
+speed_scale = 3.0
+explosiveness = 0.23
+randomness = 1.0
+process_material = SubResource( 10 )
+
+[node name="kill box5" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 14547.1, 532.717 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill box5"]
+scale = Vector2( 44.32, 4.76 )
+shape = SubResource( 3 )
+
+[node name="Particles2D" type="Particles2D" parent="kill box5"]
+position = Vector2( 217.583, -39.0533 )
+rotation = -1.53811
+scale = Vector2( 2.29041, 8.4079 )
+emitting = false
+amount = 120
+one_shot = true
+speed_scale = 3.0
+explosiveness = 0.23
+randomness = 1.0
+process_material = SubResource( 10 )
+
+[node name="kill box6" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 17154.4, 532.663 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill box6"]
+scale = Vector2( 44.32, 4.76 )
+shape = SubResource( 3 )
+
+[node name="Particles2D" type="Particles2D" parent="kill box6"]
+position = Vector2( 217.583, -39.0533 )
+rotation = -1.53811
+scale = Vector2( 2.29041, 8.4079 )
+emitting = false
+amount = 120
+one_shot = true
+speed_scale = 3.0
+explosiveness = 0.23
+randomness = 1.0
+process_material = SubResource( 10 )
+
+[node name="kill box7" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 20376.8, 531.426 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill box7"]
+scale = Vector2( 44.32, 4.76 )
+shape = SubResource( 3 )
+
+[node name="Particles2D" type="Particles2D" parent="kill box7"]
+position = Vector2( 217.583, -39.0533 )
+rotation = -1.53811
+scale = Vector2( 2.29041, 8.4079 )
+emitting = false
+amount = 120
+one_shot = true
+speed_scale = 3.0
+explosiveness = 0.23
+randomness = 1.0
+process_material = SubResource( 10 )
+
+[node name="kill box8" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 22799.9, 569.504 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill box8"]
+scale = Vector2( 44.32, 4.76 )
+shape = SubResource( 3 )
+
+[node name="Particles2D" type="Particles2D" parent="kill box8"]
+position = Vector2( 217.583, -39.0533 )
+rotation = -1.53811
+scale = Vector2( 2.29041, 8.4079 )
+emitting = false
+amount = 120
+one_shot = true
+speed_scale = 3.0
+explosiveness = 0.23
+randomness = 1.0
+process_material = SubResource( 10 )
+
+[node name="kill box9" type="Area2D" parent="."]
+position = Vector2( 25029.6, 625.725 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill box9"]
+scale = Vector2( 44.32, 4.76 )
+shape = SubResource( 3 )
+
+[node name="Particles2D" type="Particles2D" parent="kill box9"]
+position = Vector2( 217.583, -39.0533 )
+rotation = -1.53811
+scale = Vector2( 2.29041, 8.4079 )
+emitting = false
+amount = 120
+one_shot = true
+speed_scale = 3.0
+explosiveness = 0.23
+randomness = 1.0
+process_material = SubResource( 10 )
+
+[connection signal="body_entered" from="kill box" to="kill box" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="kill box2" to="kill box2" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="kill box3" to="kill box3" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="kill box4" to="kill box4" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="kill box5" to="kill box5" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="kill box6" to="kill box6" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="kill box7" to="kill box7" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="kill box8" to="kill box8" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="kill box9" to="kill box9" method="_on_Area2D_body_entered"]

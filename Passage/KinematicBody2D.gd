@@ -10,3 +10,7 @@ func _physics_process(delta):
 	velocity.y += gravity * delta 
 	velocity.x = move_speed
 	velocity = move_and_slide(velocity, movement)
+	
+
+func _on_Area2D_area_entered(area):
+	velocity.x = 0

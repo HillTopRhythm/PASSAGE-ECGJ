@@ -5,15 +5,22 @@
 [node name="start screen" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
-margin_left = 301.267
-margin_top = 97.6329
-margin_right = 341.267
-margin_bottom = 111.633
+margin_left = 298.172
+margin_top = 14.8386
+margin_right = 504.172
+margin_bottom = 96.8386
 text = "The Vikings are a brutal bunch,
 as a young warrior it is expected
-that you will undertake the right
-of passage known as the path of
-             THE BESERKER"
+that you will undergo the ancient
+right of passage known only as
+THE FROST GIANTS PASSAGE."
+
+[node name="Label" type="Label" parent="Label"]
+margin_left = -140.828
+margin_top = 143.923
+margin_right = 391.172
+margin_bottom = 157.923
+text = "Use the space bar to jump the gaps in the ice or fall into the freezing waters below."
 
 [node name="Button" type="Button" parent="."]
 margin_left = 334.273
