@@ -10,7 +10,7 @@ var jump_power = -250
 func _physics_process(delta):
 	velocity.y += gravity * delta 
 	velocity.x += lerp(velocity.x, move_speed * delta, 1)
-	clamp(velocity.x, 0, 1000)
+#	clamp(velocity.x, 0, 1000)
 	velocity = move_and_slide(velocity, movement)
 	if is_on_floor():
 		$AnimationPlayer.play("run")
@@ -23,3 +23,14 @@ func _input(event):
 #func is_falling():
 #	$AnimationPlayer.play("hang time")
 #	print("fook")
+
+func _on_winbox_body_entered(body):
+	print("WIN")
+	var t = Timer.new() 		# Create a new Timer node
+	t.set_wait_time(0.5) 		# Set the wait time
+	add_child(t)			# Add it to the node tree as the direct child
+	t.start()			# Start it
+	yield(t, "timeout")
+	set(move_speed, 0)
+	$AnimationPlayer.play("win")
+	print("anim")
