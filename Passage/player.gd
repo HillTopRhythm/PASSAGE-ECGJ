@@ -19,6 +19,7 @@ func _input(event):
 	if event.is_action_pressed("jump") && is_on_floor():
 		velocity.y = jump_power
 		$AnimationPlayer.play("Jump-anim")
+		print("jump")
 #
 #func is_falling():
 #	$AnimationPlayer.play("hang time")

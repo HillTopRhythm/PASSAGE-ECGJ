@@ -4,9 +4,9 @@
 [ext_resource path="res://player.gd" type="Script" id=2]
 [ext_resource path="res://CH_Viking_SS.png" type="Texture" id=3]
 [ext_resource path="res://Area2D.gd" type="Script" id=4]
-[ext_resource path="res://Vikinggamejam_1 (1).ogg" type="AudioStream" id=5]
-[ext_resource path="res://EN_Platform1.png" type="Texture" id=6]
-[ext_resource path="res://winbox.gd" type="Script" id=7]
+[ext_resource path="res://EN_Platform1.png" type="Texture" id=5]
+[ext_resource path="res://winbox.gd" type="Script" id=6]
+[ext_resource path="res://Vikinggamejam_1 (1).ogg" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 29.1588, 55.4017 )
@@ -135,6 +135,13 @@ extents = Vector2( 39.8879, 82.6847 )
 margin_left = -18.7622
 margin_top = -603.668
 margin_right = 2004.24
+margin_bottom = 637.332
+texture = ExtResource( 1 )
+
+[node name="EN_BackGround(4)9" type="TextureRect" parent="."]
+margin_left = -2026.49
+margin_top = -603.668
+margin_right = -3.49316
 margin_bottom = 637.332
 texture = ExtResource( 1 )
 
@@ -662,11 +669,6 @@ explosiveness = 0.23
 randomness = 1.0
 process_material = SubResource( 10 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 0, -8.62207 )
-stream = ExtResource( 5 )
-autoplay = true
-
 [node name="iceberg2" type="StaticBody2D" parent="."]
 position = Vector2( 229.8, 370.295 )
 scale = Vector2( 2.16, 2.16 )
@@ -675,7 +677,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="iceberg2"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iceberg2"]
 position = Vector2( 0, -8.14508 )
@@ -690,7 +692,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="iceberg3"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iceberg3"]
 position = Vector2( 0, -8.14508 )
@@ -705,7 +707,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="iceberg4"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iceberg4"]
 position = Vector2( 0, -8.14508 )
@@ -720,7 +722,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="iceberg5"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iceberg5"]
 position = Vector2( 0, -8.14508 )
@@ -735,7 +737,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="iceberg6"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iceberg6"]
 position = Vector2( 0, -8.14508 )
@@ -750,7 +752,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="iceberg7"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iceberg7"]
 position = Vector2( 0, -8.14508 )
@@ -758,14 +760,14 @@ rotation = 1.57079
 shape = SubResource( 14 )
 
 [node name="iceberg8" type="StaticBody2D" parent="."]
-position = Vector2( 5716.65, 370.295 )
+position = Vector2( 6030.21, 350.28 )
 scale = Vector2( 2.16, 2.16 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="iceberg8"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iceberg8"]
 position = Vector2( 0, -8.14508 )
@@ -780,7 +782,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="iceberg9"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iceberg9"]
 position = Vector2( 0, -8.14508 )
@@ -788,14 +790,14 @@ rotation = 1.57079
 shape = SubResource( 14 )
 
 [node name="iceberg10" type="StaticBody2D" parent="."]
-position = Vector2( 7944.44, 370.295 )
+position = Vector2( 8098.88, 364.575 )
 scale = Vector2( 2.16, 2.16 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="iceberg10"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iceberg10"]
 position = Vector2( 0, -8.14508 )
@@ -810,7 +812,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="iceberg11"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iceberg11"]
 position = Vector2( 0, -8.14508 )
@@ -825,7 +827,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="iceberg12"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iceberg12"]
 position = Vector2( 0, -8.14508 )
@@ -840,7 +842,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="iceberg13"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iceberg13"]
 position = Vector2( 0, -8.14508 )
@@ -855,7 +857,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="iceberg17"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iceberg17"]
 position = Vector2( 0, -8.14508 )
@@ -870,7 +872,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="iceberg18"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iceberg18"]
 position = Vector2( 0, -8.14508 )
@@ -885,7 +887,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="iceberg14"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iceberg14"]
 position = Vector2( 0, -8.14508 )
@@ -900,7 +902,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="iceberg15"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iceberg15"]
 position = Vector2( 0, -8.14508 )
@@ -915,7 +917,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="iceberg16"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iceberg16"]
 position = Vector2( 0, -8.14508 )
@@ -925,7 +927,7 @@ shape = SubResource( 14 )
 [node name="winbox" type="Area2D" parent="."]
 position = Vector2( 14599.4, -537.149 )
 scale = Vector2( 1, 10.04 )
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -933,6 +935,10 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="winbox"]
 position = Vector2( 3.70129, -1.85062 )
 shape = SubResource( 15 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
 
 [connection signal="body_entered" from="kill box" to="kill box" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="kill box2" to="kill box2" method="_on_Area2D_body_entered"]
