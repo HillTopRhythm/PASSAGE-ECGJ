@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 const movement = Vector2(0,-1)
 var velocity = Vector2()
-export var move_speed = 250
+export var move_speed = 130
 var gravity = 600
 var jump_power = -250
 # Called when the node enters the scene tree for the first time.
@@ -24,13 +24,9 @@ func _input(event):
 #	$AnimationPlayer.play("hang time")
 #	print("fook")
 
-func _on_winbox_body_entered(body):
-	print("WIN")
-	var t = Timer.new() 		# Create a new Timer node
-	t.set_wait_time(0.5) 		# Set the wait time
-	add_child(t)			# Add it to the node tree as the direct child
-	t.start()			# Start it
-	yield(t, "timeout")
-	set(move_speed, 0)
-	$AnimationPlayer.play("win")
-	print("anim")
+
+#
+#
+#func _on_winbox_body_entered(body):
+#	set.var velocity = 0
+#	$AnimationPlayer.play("win")

@@ -2,3 +2,14 @@
 
 [node name="end screen" type="Node2D"]
 
+[node name="Label" type="Label" parent="."]
+margin_left = 415.895
+margin_top = 185.913
+margin_right = 558.895
+margin_bottom = 267.913
+text = "CONGRATULATIONS
+you survived the tiral 
+and went on to earn 
+your place at the tabel
+of vallhalla!"
+
