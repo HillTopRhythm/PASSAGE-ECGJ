@@ -23,7 +23,3 @@ func _input(event):
 #func is_falling():
 #	$AnimationPlayer.play("hang time")
 #	print("fook")
-
-
-
-
