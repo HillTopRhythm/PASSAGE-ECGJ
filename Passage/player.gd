@@ -14,11 +14,18 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, movement)
 	if is_on_floor():
 		$AnimationPlayer.play("run")
+#	elif is_on_floor():
+#		get_node("sfx_run").stop()
+	else:
+		get_node("sfx_run").play()
+
 
 func _input(event):
 	if event.is_action_pressed("jump") && is_on_floor():
 		velocity.y = jump_power
 		$AnimationPlayer.play("Jump-anim")
+		get_node("sfx_run").stop()
+		get_node("sfx_jump").play()
 		print("jump")
 #
 #func is_falling():

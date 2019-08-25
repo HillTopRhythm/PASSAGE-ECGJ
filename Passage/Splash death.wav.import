@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Splash death.wav-a9563296db7662e7bcf82bb5e9b06622.sample"
+
+[deps]
+
+source_file="res://Splash death.wav"
+dest_files=[ "res://.import/Splash death.wav-a9563296db7662e7bcf82bb5e9b06622.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

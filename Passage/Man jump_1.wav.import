@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Man jump_1.wav-0ada05b3646779c463840b1a21c53fca.sample"
+
+[deps]
+
+source_file="res://Man jump_1.wav"
+dest_files=[ "res://.import/Man jump_1.wav-0ada05b3646779c463840b1a21c53fca.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
