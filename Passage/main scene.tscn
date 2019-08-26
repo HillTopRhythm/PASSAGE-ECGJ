@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://EN_BackGround(4).png" type="Texture" id=1]
 [ext_resource path="res://EN_Hall.png" type="Texture" id=2]
@@ -46,7 +46,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "run"
-length = 4.0
+length = 0.8
 loop = true
 step = 0.2
 tracks/0/type = "value"
@@ -68,10 +68,22 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3 ]
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Particles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -88,6 +100,26 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 4, 5, 6, 7, 7, 6, 5 ]
 }
+
+[sub_resource type="ParticlesMaterial" id=16]
+trail_divisor = 2
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 116.72, 0 )
+angular_velocity = 5.42
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.3
+linear_accel = 2.3
+radial_accel = 32.18
+radial_accel_random = 0.25
+tangential_accel = 32.18
+damping = 48.8
+angle = 38.0
+scale = 2.4
+scale_random = 1.0
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 10, 1.03999 )
@@ -317,12 +349,8 @@ rect_scale = Vector2( 4.9605, 4.9605 )
 texture = ExtResource( 2 )
 
 [node name="player" type="KinematicBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 54.282, 226.603 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2( -12.5136, 14.7888 )
@@ -357,6 +385,16 @@ anims/win = SubResource( 4 )
 
 [node name="sfx_jump" type="AudioStreamPlayer" parent="player"]
 stream = ExtResource( 5 )
+
+[node name="Particles2D" type="Particles2D" parent="player"]
+position = Vector2( -26.7922, 67.1691 )
+rotation = 1.86104
+emitting = false
+amount = 67
+lifetime = 0.8
+speed_scale = 1.5
+explosiveness = 1.0
+process_material = SubResource( 16 )
 
 [node name="kill boxes" type="Node2D" parent="."]
 editor/display_folded = true
@@ -818,6 +856,7 @@ randomness = 1.0
 process_material = SubResource( 10 )
 
 [node name="platforms" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="iceberg2" type="StaticBody2D" parent="platforms"]
 editor/display_folded = true
