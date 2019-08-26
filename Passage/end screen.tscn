@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://EN_Victory.png" type="Texture" id=1]
 
 [node name="end screen" type="Node2D"]
 
@@ -10,6 +12,16 @@ margin_bottom = 267.913
 text = "CONGRATULATIONS
 you survived the tiral 
 and went on to earn 
-your place at the tabel
-of vallhalla!"
+your place at the table
+ in vallhalla!"
+align = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 490, 200 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="EN_Victory" type="Sprite" parent="."]
+position = Vector2( 490.784, 149.121 )
+texture = ExtResource( 1 )
 
