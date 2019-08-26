@@ -221,6 +221,101 @@ margin_bottom = 16.2346
 rect_scale = Vector2( 4.9605, 4.9605 )
 texture = ExtResource( 2 )
 
+[node name="back ground2" type="Node2D" parent="."]
+position = Vector2( 0, 1356.27 )
+scale = Vector2( 1, -1.16 )
+
+[node name="EN_BackGround(4)" type="TextureRect" parent="back ground2"]
+modulate = Color( 0.823529, 0.815686, 1, 1 )
+self_modulate = Color( 0.760784, 0.760784, 0.760784, 1 )
+margin_left = -18.7622
+margin_top = -603.668
+margin_right = 2004.24
+margin_bottom = 637.332
+texture = ExtResource( 1 )
+
+[node name="EN_BackGround(4)9" type="TextureRect" parent="back ground2"]
+modulate = Color( 0.823529, 0.815686, 1, 1 )
+self_modulate = Color( 0.760784, 0.760784, 0.760784, 1 )
+margin_left = -2026.49
+margin_top = -603.668
+margin_right = -3.48999
+margin_bottom = 637.332
+texture = ExtResource( 1 )
+
+[node name="EN_BackGround(4)6" type="TextureRect" parent="back ground2"]
+modulate = Color( 0.823529, 0.815686, 1, 1 )
+self_modulate = Color( 0.760784, 0.760784, 0.760784, 1 )
+margin_left = 8066.02
+margin_top = -606.059
+margin_right = 10089.0
+margin_bottom = 634.941
+texture = ExtResource( 1 )
+
+[node name="EN_BackGround(4)4" type="TextureRect" parent="back ground2"]
+modulate = Color( 0.823529, 0.815686, 1, 1 )
+self_modulate = Color( 0.760784, 0.760784, 0.760784, 1 )
+margin_left = 4027.48
+margin_top = -603.668
+margin_right = 6050.48
+margin_bottom = 637.332
+texture = ExtResource( 1 )
+
+[node name="EN_BackGround(4)8" type="TextureRect" parent="back ground2"]
+modulate = Color( 0.823529, 0.815686, 1, 1 )
+self_modulate = Color( 0.760784, 0.760784, 0.760784, 1 )
+margin_left = 12100.5
+margin_top = -603.668
+margin_right = 14123.5
+margin_bottom = 637.332
+texture = ExtResource( 1 )
+
+[node name="EN_BackGround(4)2" type="TextureRect" parent="back ground2"]
+modulate = Color( 0.823529, 0.815686, 1, 1 )
+self_modulate = Color( 0.760784, 0.760784, 0.760784, 1 )
+margin_left = 2003.86
+margin_top = -603.668
+margin_right = 4026.86
+margin_bottom = 637.332
+texture = ExtResource( 1 )
+
+[node name="EN_BackGround(4)5" type="TextureRect" parent="back ground2"]
+modulate = Color( 0.823529, 0.815686, 1, 1 )
+self_modulate = Color( 0.760784, 0.760784, 0.760784, 1 )
+margin_left = 10083.9
+margin_top = -603.668
+margin_right = 12106.9
+margin_bottom = 637.332
+texture = ExtResource( 1 )
+
+[node name="EN_BackGround(4)3" type="TextureRect" parent="back ground2"]
+modulate = Color( 0.823529, 0.815686, 1, 1 )
+self_modulate = Color( 0.760784, 0.760784, 0.760784, 1 )
+margin_left = 6049.96
+margin_top = -606.059
+margin_right = 8072.96
+margin_bottom = 634.941
+texture = ExtResource( 1 )
+
+[node name="EN_BackGround(4)7" type="TextureRect" parent="back ground2"]
+modulate = Color( 0.823529, 0.815686, 1, 1 )
+self_modulate = Color( 0.760784, 0.760784, 0.760784, 1 )
+margin_left = 14123.1
+margin_top = -603.668
+margin_right = 16146.1
+margin_bottom = 637.332
+texture = ExtResource( 1 )
+
+[node name="EN_Hall" type="TextureRect" parent="back ground2"]
+modulate = Color( 0.823529, 0.815686, 1, 1 )
+self_modulate = Color( 0.760784, 0.760784, 0.760784, 1 )
+margin_left = 11801.1
+margin_top = -52.7654
+margin_right = 11871.1
+margin_bottom = 16.2346
+rect_scale = Vector2( 4.9605, 4.9605 )
+texture = ExtResource( 2 )
+
 [node name="player" type="KinematicBody2D" parent="."]
 editor/display_folded = true
 position = Vector2( 54.282, 226.603 )
@@ -723,7 +818,6 @@ randomness = 1.0
 process_material = SubResource( 10 )
 
 [node name="platforms" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="iceberg2" type="StaticBody2D" parent="platforms"]
 editor/display_folded = true
@@ -918,11 +1012,12 @@ rotation = 1.57079
 shape = SubResource( 11 )
 
 [node name="iceberg17" type="StaticBody2D" parent="platforms"]
-editor/display_folded = true
 position = Vector2( 11928.9, 362.476 )
 scale = Vector2( 2.16, 2.16 )
 
 [node name="Sprite" type="Sprite" parent="platforms/iceberg17"]
+position = Vector2( -2.26563, -0.942719 )
+scale = Vector2( 1.00152, 1.02946 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/iceberg17"]
