@@ -30,4 +30,8 @@ margin_bottom = 211.124
 text = "Begin the ceremony"
 script = ExtResource( 1 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 393.495, 199.921 )
+current = true
+
 [connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]

@@ -15,6 +15,7 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	$Particles2D.emitting = true
+	get_node("../../AudioStreamPlayer2").play()
 	print("HELLO") 			# Code before the yield
 	# Setting up the yield:
 	var t = Timer.new() 		# Create a new Timer node
