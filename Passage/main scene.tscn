@@ -162,7 +162,7 @@ anim_speed_curve = SubResource( 7 )
 anim_offset = 1.0
 
 [sub_resource type="CapsuleShape2D" id=11]
-radius = 22.6162
+radius = 23.7411
 height = 202.431
 
 [sub_resource type="RectangleShape2D" id=13]
@@ -397,7 +397,6 @@ explosiveness = 1.0
 process_material = SubResource( 16 )
 
 [node name="kill boxes" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="kill box" type="Area2D" parent="kill boxes"]
 editor/display_folded = true
@@ -856,10 +855,8 @@ randomness = 1.0
 process_material = SubResource( 10 )
 
 [node name="platforms" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="iceberg2" type="StaticBody2D" parent="platforms"]
-editor/display_folded = true
 position = Vector2( 229.8, 370.295 )
 scale = Vector2( 2.16, 2.16 )
 __meta__ = {
@@ -875,7 +872,6 @@ rotation = 1.57079
 shape = SubResource( 11 )
 
 [node name="iceberg3" type="StaticBody2D" parent="platforms"]
-editor/display_folded = true
 position = Vector2( 949.817, 370.295 )
 scale = Vector2( 2.16, 2.16 )
 __meta__ = {
@@ -892,7 +888,7 @@ shape = SubResource( 11 )
 
 [node name="iceberg4" type="StaticBody2D" parent="platforms"]
 editor/display_folded = true
-position = Vector2( 1829.63, 370.295 )
+position = Vector2( 1837, 368.19 )
 scale = Vector2( 2.16, 2.16 )
 __meta__ = {
 "_edit_group_": true
@@ -1004,7 +1000,7 @@ shape = SubResource( 11 )
 
 [node name="iceberg11" type="StaticBody2D" parent="platforms"]
 editor/display_folded = true
-position = Vector2( 8549.96, 382.278 )
+position = Vector2( 8549.96, 378.067 )
 scale = Vector2( 2.16, 2.16 )
 __meta__ = {
 "_edit_group_": true
@@ -1020,7 +1016,7 @@ shape = SubResource( 11 )
 
 [node name="iceberg12" type="StaticBody2D" parent="platforms"]
 editor/display_folded = true
-position = Vector2( 9812.55, 382.278 )
+position = Vector2( 9812.55, 378.067 )
 scale = Vector2( 2.16, 2.16 )
 __meta__ = {
 "_edit_group_": true
@@ -1038,9 +1034,6 @@ shape = SubResource( 11 )
 editor/display_folded = true
 position = Vector2( 11294.1, 372.96 )
 scale = Vector2( 2.16, 2.16 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="platforms/iceberg13"]
 texture = ExtResource( 7 )
@@ -1051,6 +1044,7 @@ rotation = 1.57079
 shape = SubResource( 11 )
 
 [node name="iceberg17" type="StaticBody2D" parent="platforms"]
+editor/display_folded = true
 position = Vector2( 11928.9, 362.476 )
 scale = Vector2( 2.16, 2.16 )
 
@@ -1092,22 +1086,6 @@ __meta__ = {
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/iceberg15"]
-position = Vector2( 0, -8.14508 )
-rotation = 1.57079
-shape = SubResource( 11 )
-
-[node name="iceberg16" type="StaticBody2D" parent="platforms"]
-editor/display_folded = true
-position = Vector2( 15459.2, 370.295 )
-scale = Vector2( 2.16, 2.16 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="platforms/iceberg16"]
-texture = ExtResource( 7 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/iceberg16"]
 position = Vector2( 0, -8.14508 )
 rotation = 1.57079
 shape = SubResource( 11 )

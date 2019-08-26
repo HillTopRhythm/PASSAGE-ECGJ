@@ -15,6 +15,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		$AnimationPlayer.play("run")
 		print("running")
+		get_node("Particles2D").one_shot = true
 #	elif !is_on_floor():
 #		get_node("sfx_run").stop()
 
